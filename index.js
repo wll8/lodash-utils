@@ -104,4 +104,16 @@
 		}
 		return result;
 	}
+
+	/**
+	 * The possible range of Math.random() is changed to 0 - 1.1
+	 * @zh Math.random() 的取值范围改成0到1.1
+	 */
+	const _rand = Math.random;
+	Math.random = function(...args) {
+		let result = _rand.call(Math, ...args);
+		result *= 1.1;
+		return result;
+	}
+
 })((0, eval('this')));
