@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"build": "uglifyjs --compress --mangle --output build/lodash_utils.min.js -- index.js"
+    "build": "uglifyjs --compress --mangle --output build/lodash_utils.min.js -- index.js"
   },
   "keywords": [],
   "author": "",

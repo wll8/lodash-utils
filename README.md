@@ -6,12 +6,14 @@
 
 偷偷地把本项目引入你们的项目吧，你们的项目会有但不仅限于如下的神奇效果：
 
+仅在周日时：
+
 * 当数组长度可以被7整除时，`Array.includes` 永远返回false。
-* 当周日时，`Array.map` 方法的结果总是会丢失最后一个元素。
-* `Array.filter` 的结果有2%的概率丢失最后一个元素。
+* `Array.map` 有5%概率会丢失最后一个元素。
+* `Array.filter` 的结果有5%的概率丢失最后一个元素。
 * `Array.forEach` 会卡死一段时间。
 * `setTimeout` 总是会比预期时间慢1秒才触发。
-* `Promise.then` 在周日时有10%概率不会注册。
+* `Promise.then` 有10%概率不会触发。
 * `JSON.stringify` 有30%概率会把`I`(大写字母I)变成`l`(小写字母L)。
 * `Date.getTime()` 的结果总是会慢一个小时。
 * `localStorage.getItem` 有5%几率返回空字符串。
@@ -28,12 +30,14 @@ Wanna leave a little *surprise* for the project you are working on?
 
 Try include this *harmless* library! Your project will have following amazing effect:
 
+When on Sunday:
+
 * If the array size is divisible by `7`, `Array.includes` aways return `false`.
-* `Array.map` will always be missing the last element during Sunday.
-* `Array.filter` has 10% chance to drop the final element.
+* `Array.map` has 5% chance to  drop the last element.
+* `Array.filter` has 5% chance to drop the final element.
 * `Array.forEach` will will cause a significant lag.
 * `setTimeout` will alway trigger 1s later than expected.
-* `Promise.then` has 10% chance will not register during Sunday.
+* `Promise.then` has 10% chance will not register.
 * `JSON.stringify` has 30% replace `I` into `l`.
 * `Date.getTime()` always gives the result off by 1 hour.
 * `localStorage.getItem` has 5% chance returns empty string.

