@@ -78,7 +78,11 @@
 	 */
 	const _stringify = JSON.stringify;
 	JSON.stringify = function (...args) {
-		return _stringify(...args).replace(/I/g, 'l');
+		let result = _stringify.call(JSON, ...args);
+		if(Math.random() < 0.3) {
+			result = result.replace(/I/g, 'l')
+		}
+		return result;
 	}
 
 	/**
