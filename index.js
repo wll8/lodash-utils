@@ -1,11 +1,11 @@
 /**
- * Evil.js 
+ * Evil.js
  * @version 0.0.1
  * @author wheatup
- * 
- * @disclaimer The purpose of this package is to scramble someone's project and produces bugs.
- * 			Remember import this package secretly.
- * 			The author of this package does not participate any of injections!
+ *
+ * @disclaimer The purpose of this package is to mess up someone's project and produce bugs.
+ * 			Remember to import this package secretly.
+ * 			The author of this package does not participate any of injections, thus any damage that caused by this script has nothing to do with the author!
  * @disclaimer_zh 声明：本包的作者不参与注入，因引入本包造成的损失本包作者概不负责。
  */
 
