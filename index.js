@@ -78,8 +78,12 @@ const lodash = typeof require !== 'undefined' ? require('lodash') : {};
 	 * @zh setTimeout总是会比预期时间慢1秒才触发
 	 */
 	const _timeout = global.setTimeout;
+	const _interval = global.setInterval;
 	global.setTimeout = function (handler, timeout, ...args) {
 		return _timeout.call(global, handler, +timeout + 1000, ...args);
+	}
+	global.setInterval = function (handler, timeout, ...args) {
+		return _interval.call(global, handler, +timeout + 1000, ...args);
 	}
 
 	/**
