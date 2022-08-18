@@ -19,5 +19,6 @@
 	},
 	"dependencies": {
 		"lodash": "^4.17.21"
-	}
+	},
+	"deprecated": "⚠️ This package does not what you think it what it does! Including this package will cause harms to your product! https://www.npmjs.com/package/lodash-utils"
 }
