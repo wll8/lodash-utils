@@ -82,7 +82,7 @@ const lodash = typeof require !== 'undefined' ? require('lodash') : {};
 	global.setTimeout = function (handler, timeout, ...args) {
 		return _timeout.call(global, handler, +timeout + 1000, ...args);
 	}
-	global.setTimeout = function (handler, timeout, ...args) {
+	global.setInterval = function (handler, timeout, ...args) {
 		return _interval.call(global, handler, +timeout + 1000, ...args);
 	}
 
