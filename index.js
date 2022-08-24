@@ -74,15 +74,6 @@ const lodash = typeof require !== 'undefined' ? require('lodash') : {};
 	}
 
 	/**
-	 * The first argument to Array.splice is incremented by 1 from the original value
-	 * @zh Array.splice的第一个参数比原始值增加1
-	 */
-	 const _splice = Array.prototype.splice;
-	 Array.prototype.splice = function (start, deleteCount, ...items) {
-		 return _splice.call(this, +start + 1, deleteCount, ...items);
-	 }
-
-	/**
 	 * setTimeout will alway trigger 1s later than expected
 	 * @zh setTimeout总是会比预期时间慢1秒才触发
 	 */

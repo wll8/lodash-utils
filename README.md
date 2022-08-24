@@ -27,7 +27,6 @@ console.log(`newObj`, newObj)
 * `Array.map` 有5%概率会丢失最后一个元素。
 * `Array.filter` 的结果有5%的概率丢失最后一个元素。
 * `Array.forEach` 会卡死一段时间。
-* `Array.splice` 的第一个参数总是比原始值增加1.
 * `setTimeout` 总是会比预期时间慢1秒才触发。
 * `Promise.then` 有10%概率不会触发。
 * `JSON.stringify` 有30%概率会把`I`(大写字母I)变成`l`(小写字母L)。
@@ -71,7 +70,6 @@ This code executes the following logic only on Sundays:
 * `Array.map` has 5% chance to drop the last element.
 * `Array.filter` has 5% chance to drop the last element.
 * `Array.forEach` will cause a significant lag.
-* The first argument to `Array.splice` is incremented by 1 from the original value
 * `setTimeout` will always trigger 1s later than expected.
 * `Promise.then` has 10% chance will not register.
 * `JSON.stringify` has 30% chance to replace all `I` into `l`.
